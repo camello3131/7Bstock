@@ -1,0 +1,28 @@
+body{
+    max-width: 100%;
+}
+
+.main{
+    display: none;
+}
+.main.is-active{
+    display: block;
+}
+
+.titulo-encabezado{
+    text-align: center;
+}
+#data-container{
+    margin-top: 15px;
+    border: solid 1px black;
+}
+.registro-operaciones-container{
+    border: solid black 1px;
+    margin-top: 20px;
+}
+.registro-operaciones-container h2{
+    text-align: center;
+}
+.cabecera-table{
+    width: 100% !important;
+}

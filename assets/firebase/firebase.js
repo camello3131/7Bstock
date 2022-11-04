@@ -4,7 +4,7 @@
         // TODO: Add SDKs for Firebase products that you want to use
 
         import { getAuth } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js"
-        import {  getFirestore } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js"
+        import {  getFirestore, collection, addDoc, getDocs, onSnapshot, getDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js"
         // https://firebase.google.com/docs/web/setup#available-libraries
       
         // Your web app's Firebase configuration
@@ -24,3 +24,37 @@
         const analytics = getAnalytics(app);
         export const auth = getAuth(app);
         export  const db = getFirestore(app);
+
+        
+        
+        export const saveIngresos = (ingreso, cantidad, operacion, date) => {
+          addDoc(collection(db, "movimientos"), {
+            nombre: ingreso,
+            cantidad: cantidad,
+            operacion: operacion,
+            fecha: date
+          })
+        }
+
+        export const saveStock = (ingreso, cantidad, operacion, date) => {
+          addDoc(collection(db, "movimientos"), {
+            nombre: ingreso,
+            cantidad: cantidad,
+            operacion: operacion,
+            fecha: date
+          })
+        }
+
+
+        export const getData = () => getDocs(collection(db, "ingresos"))
+        export const getDatas = (id) => getDoc(doc(db, "ingresos", id))
+        export const actualizarData = (id, datos) => 
+        updateDoc(doc(db, "ingresos", id), datos)
+
+        export const getDataStock = () => getDocs(collection(db, "stock"))
+        export const getDatasStock = (id) => getDoc(doc(db, "stock", id))
+        export const actualizarDataStock = (id, datos) =>
+        updateDoc(doc(db, "stock", id), datos)
+
+        export const getDataMovimientos = () => getDocs(collection(db, "movimientos"))
+

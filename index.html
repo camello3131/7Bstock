@@ -9,6 +9,9 @@
     <!--------------------------------BOOTSTRAP----------------------------->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="/assets/js/index.js" type="module"></script>
+    <!------------------------------DATA TABLES css----------------------------->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+
     <title>7B - Stock</title>
 </head>
 <body>
@@ -84,9 +87,89 @@
                         </div>
                         </div>
                     </div>
+                    <hr>
+                    <div class="main container">
+                        <h1 class="text-center">7 Balles Stock</h1>
+                        <div class="all container">
+                            <div class="container ingresos-container">
+                                <h5 class="">Ingresos</h5>
+                                <form action="" id="formIngreso">
+                                    <select name="" id="etiquetaSelect"></select>
+                                    <input type="number" placeholder="Ingresar cantidad" id="cantidadIngreso">
+                                    <button type="submit" class="btn btn-primary" id="cargaIngresos">Cargar</button>
+                                    <button type="submit" class="btn btn-danger" id="quitarIngreso">Quitar</button>
+                                </form>
+                            </div>
+                            <hr>
+                            <div class="stock-altas-container container">
+                                <form action="" id="formCargas" class="formStock">
+                                    <h5 class="">Stock Altas</h5>
+                                    <select name="" id="etiquetaSelect-altas" class="etiquetaSelect"></select>
+                                    <input type="number" placeholder="Ingresar al stock" id="cantidadStock" class="cantidadStock">
+                                    <button type="submit" class="btn btn-primary carga" id="cargaStock">Cargar</button>
+                                    <button type="submit" class="btn btn-danger bajaBtn" id="bajaStock">Quitar</button>
+                                </form>
+                            </div>
+                            <hr>
+                            <div class="stock-retiros-container container">
+                                <form action="" class="formStock">
+                                    <h5 class="">Retiros</h5>
+                                    <select name="" id="etiquetaSelect-retiros" class="etiquetaSelect"></select>
+                                    <input type="number" placeholder="Cargar retiros" class="cantidadStock" id="cantidadRetiro">
+                                    <button type="submit" class="btn btn-primary bajaBtn" id="cargaRetiro">Cargar</button>
+                                    <button type="submit" class="btn btn-danger carga" id="cancelarRetiro">Quitar</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="container" id="data-container">
+                            <div class="titulo-encabezado">
+                                <h2>Inventario</h2>
+                                <p>Total Inventario Materiales y Stock</p>
+                                <hr>
+                            </div>
+                            <table class="table table-striped table-bordered table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Material/Producto</th>
+                                        <th>Cantidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="inventario">
+                                </tbody>
+                            </table>
+                        </div>
+<!---------------------------------------------TABLE------------------------------------------->
+                        <div class=" container registro-operaciones-container" id="container-operaciones">
+                            <h2>Registro de operaciones</h2>
+                            <hr>
+                            <div class="container my-4">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                        <table class="table table-striped table-bordered table-condensed" id="data-table-movimientos" style="width:100%">
+                                            <thead class="col-12 thead-registro" style="width:100%">
+                                                <tr class="cabecera-table" style="width:100%">
+                                                    <th>#</th>
+                                                    <th>Fecha</th>
+                                                    <th>Producto/Material</th>
+                                                    <th>Cantidad</th>
+                                                    <th>Operación</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="table-movimientos"></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
     <!------------------------------BOOTSTRAP----------------------------->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <!------------------------------CUSTOM JS----------------------------->
+    <!------------------------------JQUERY----------------------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!------------------------------DATA TABLES----------------------------->
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 </body>
 </html>

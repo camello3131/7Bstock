@@ -1,13 +1,31 @@
-const dataList = document.querySelector(".list-group")
+export const setUpData = (ingresos, stock) => {
 
-export const setUpData = (data) => {
-    if(data.length) {
-            data.forEach( doc => {
+    if(ingresos.length) {
+        const select = document.querySelector("#etiquetaSelect")
+        ingresos.forEach( doc => {
                 const dato = doc.data()
-                console.log(dato)
+                const option = document.createElement("option")
+                option.textContent = dato.nombre
+                select.appendChild(option)
             })
-        console.log(dataList)
+
+            const selectStockAlta = document.querySelector("#etiquetaSelect-altas")
+            const selectStockBajas = document.querySelector("#etiquetaSelect-retiros")
+                stock.forEach(doc => {
+                    const dato = doc.data()
+                    const option = document.createElement("option")
+                    option.textContent = dato.nombre
+                    selectStockAlta.appendChild(option)
+                })
+                stock.forEach(doc => {
+                    const dato = doc.data()
+                    const option = document.createElement("option")
+                    option.textContent = dato.nombre
+                    selectStockBajas.appendChild(option)
+                })
+
+            const $main = document.querySelector(".main")
+            $main.classList.add("is-active")
     } else {
-        dataList.innerHTML=`<h1 class="center-align> Logearse para utilizar</h1>`
     }
 }
