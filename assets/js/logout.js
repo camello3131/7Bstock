@@ -5,4 +5,5 @@ const logout = document.querySelector("#log-out")
 
 logout.addEventListener("click", async e => {
     await signOut(auth)
+    location.reload()
 })

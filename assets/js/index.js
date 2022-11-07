@@ -10,6 +10,7 @@ import "./signin.js"
 import "./signup.js"
 import "./logout.js"
 import "../firebase/firebase.js"
+import { agregarSpinner, quitarSpinner, sweetAlert } from "./spinner.js"
 
 const dataContainer = document.querySelector("#inventario")
 
@@ -18,6 +19,7 @@ const dataContainer = document.querySelector("#inventario")
 /*---------------------------------------TRAER DATA------------------------------- */
 
 onAuthStateChanged(auth, async (user) => {
+    agregarSpinner()
     if (user) {
         const ingresos = await getDocs(collection(db, "ingresos"))
         const stock = await getDocs(collection(db, "stock"))
@@ -61,7 +63,7 @@ onAuthStateChanged(auth, async (user) => {
             dataContainer.innerHTML +=html
         }
         stockData()
-        
+        quitarSpinner()
     } else {
     }
     loginCheck(user)
@@ -74,10 +76,11 @@ onAuthStateChanged(auth, async (user) => {
 let today = new Date();
 let now = today.toLocaleDateString('en-US');
 
+
 const btnCarga = document.querySelector("#cargaIngresos")
 btnCarga.addEventListener("click", async e => {
     e.preventDefault()
-
+    agregarSpinner()
     const idHilados = "2tbQCS2v4Zr02J0Zq9aS"
     const idCajas = "EFYZsIroihvZdfCyFe2S"
     const select = document.querySelector("#etiquetaSelect").value
@@ -93,7 +96,7 @@ btnCarga.addEventListener("click", async e => {
         saveIngresos("Hilados", nuevoIngreso, "Agregar", now)
         await actualizarData(idHilados, {nombre: "Hilados", cantidad: cantidadTotal})
         form.reset()
-        location.reload()
+        sweetAlert()
     }
     if(select === "Cajas") {
         const doc = await getDatas(idCajas)
@@ -104,14 +107,15 @@ btnCarga.addEventListener("click", async e => {
         saveIngresos("Cajas", nuevoIngreso, "Agregar", now)
         await actualizarData(idCajas, {nombre: "Cajas", cantidad: cantidadTotal})
         form.reset()
-        location.reload()
+        sweetAlert()
     }
+    quitarSpinner()
 })
 
 const btnQuitar = document.querySelector("#quitarIngreso")
 btnQuitar.addEventListener("click", async e => {
     e.preventDefault()
-
+    agregarSpinner()
     const idHilados = "2tbQCS2v4Zr02J0Zq9aS"
     const idCajas = "EFYZsIroihvZdfCyFe2S"
     const select = document.querySelector("#etiquetaSelect").value
@@ -127,7 +131,7 @@ btnQuitar.addEventListener("click", async e => {
         saveIngresos("Hilados", nuevoIngreso, "Eliminado", now)
         await actualizarData(idHilados, {nombre: "Hilados", cantidad: cantidadTotal})
         form.reset()
-        location.reload()
+        sweetAlert()
     }
     if(select === "Cajas") {
         const doc = await getDatas(idCajas)
@@ -138,8 +142,9 @@ btnQuitar.addEventListener("click", async e => {
         saveIngresos("Cajas", nuevoIngreso, "Eliminado", now)
         await actualizarData(idCajas, {nombre: "Cajas", cantidad: cantidadTotal})
         form.reset()
-        location.reload()
+        sweetAlert()
     }
+    quitarSpinner()
 })
 
 
@@ -150,6 +155,7 @@ const btnBajaStock = document.querySelectorAll(".bajaBtn")
 btnBajaStock.forEach(btn => {
     btn.addEventListener("click", async (e) => {
         e.preventDefault()
+        agregarSpinner()
         let select = ""
         let id = ""
         let nuevoIngreso = 0
@@ -181,9 +187,10 @@ btnBajaStock.forEach(btn => {
         const cantidadActual = elemento.stock
         const cantidadTotal = cantidadActual - nuevoIngreso
     
-        saveIngresos(select, nuevoIngreso, "Retiro", now)
+        saveIngresos(select, nuevoIngreso, "Retiro Stock", now)
         await actualizarDataStock(id, {nombre: select, stock: cantidadTotal})
-        location.reload()
+        sweetAlert()
+        quitarSpinner()
     })
 })
 
@@ -191,6 +198,7 @@ btnBajaStock.forEach(btn => {
 btnCargaStock.forEach(btn => {
     btn.addEventListener("click", async (e) => {
         e.preventDefault()
+        agregarSpinner()
         let select = ""
         let id = ""
         let nuevoIngreso = 0
@@ -222,12 +230,17 @@ btnCargaStock.forEach(btn => {
         const cantidadActual = elemento.stock
         const cantidadTotal = cantidadActual + nuevoIngreso
     
-        saveIngresos(select, nuevoIngreso, "Carga", now)
+        saveIngresos(select, nuevoIngreso, "Carga Stock", now)
         await actualizarDataStock(id, {nombre: select, stock: cantidadTotal})
-        location.reload()
+        sweetAlert()
+        quitarSpinner()
     })
 })
 
 
+
+/*---------------------------------------DATA MENSUAL------------------------------- */
+/*---------------------------------------DATA MENSUAL------------------------------- */
+/*---------------------------------------DATA MENSUAL------------------------------- */
 
 

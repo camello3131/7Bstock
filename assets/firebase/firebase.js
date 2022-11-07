@@ -48,7 +48,7 @@
 
         export const getData = () => getDocs(collection(db, "ingresos"))
         export const getDatas = (id) => getDoc(doc(db, "ingresos", id))
-        export const actualizarData = (id, datos) => 
+        export const actualizarData = (id, datos) =>
         updateDoc(doc(db, "ingresos", id), datos)
 
         export const getDataStock = () => getDocs(collection(db, "stock"))

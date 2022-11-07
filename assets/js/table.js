@@ -1,5 +1,6 @@
 import { db, getDataMovimientos } from "../firebase/firebase.js"
 import {  getDocs, collection } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js"
+import { quitarSpinner } from "./spinner.js";
 
 
 let dataTable;
@@ -56,6 +57,7 @@ const listData = async () => {
             const tablaMovimientos = document.getElementById("table-movimientos")
             tablaMovimientos.innerHTML = content
         })
+        quitarSpinner()
     }
     catch (err) {
         alert (err)
@@ -65,3 +67,4 @@ const listData = async () => {
 window.addEventListener("load", async e => {
     await initDataTable()
 })
+
