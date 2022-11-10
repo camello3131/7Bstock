@@ -19,7 +19,7 @@
 <body class="hiden">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="#">7b Stock</a>
+          <a class="navbar-brand" href="#">7B Stock</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -93,53 +93,61 @@
                     <div class="main container">
                         <h1 class="text-center">7 Balles Stock</h1>
                         <div class="all container">
-                            <div class="container ingresos-container">
-                                <h5 class="">Ingresos</h5>
-                                <form action="" id="formIngreso">
-                                    <select name="" id="etiquetaSelect"></select>
-                                    <input type="number" placeholder="Ingresar cantidad" id="cantidadIngreso">
-                                    <button type="submit" class="btn btn-primary" id="cargaIngresos">Cargar</button>
-                                    <button type="submit" class="btn btn-danger" id="quitarIngreso">Quitar</button>
-                                </form>
-                            </div>
-                            <hr>
-                            <div class="stock-altas-container container">
-                                <form action="" id="formCargas" class="formStock">
-                                    <h5 class="">Stock Altas</h5>
-                                    <select name="" id="etiquetaSelect-altas" class="etiquetaSelect"></select>
-                                    <input type="number" placeholder="Ingresar al stock" id="cantidadStock" class="cantidadStock">
-                                    <button type="submit" class="btn btn-primary carga" id="cargaStock">Cargar</button>
-                                    <button type="submit" class="btn btn-danger bajaBtn" id="bajaStock">Quitar</button>
-                                </form>
-                            </div>
-                            <hr>
-                            <div class="stock-retiros-container container">
-                                <form action="" class="formStock">
-                                    <h5 class="">Retiros</h5>
-                                    <select name="" id="etiquetaSelect-retiros" class="etiquetaSelect"></select>
-                                    <input type="number" placeholder="Cargar retiros" class="cantidadStock" id="cantidadRetiro">
-                                    <button type="submit" class="btn btn-primary bajaBtn" id="cargaRetiro">Cargar</button>
-                                    <button type="submit" class="btn btn-danger carga" id="cancelarRetiro">Quitar</button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="container" id="data-container">
-                            <div class="titulo-encabezado">
-                                <h2>Inventario</h2>
-                                <p>Total Inventario Materiales y Stock</p>
+                            <div class="formularios-container">
+                                <div class="container ingresos-container">
+                                    <h5 class="">Ingresos</h5>
+                                    <form action="" id="formIngreso">
+                                        <select name="" id="etiquetaSelect" class="etiquetaSelect"></select>
+                                        <input type="number" placeholder="Ingresar cantidad" id="cantidadIngreso">
+                                        <div class="container-button">
+                                            <button type="submit" class="btn btn-primary" id="cargaIngresos">Cargar</button>
+                                            <button type="submit" class="btn btn-danger" id="quitarIngreso">Quitar</button>
+                                        </div>
+                                    </form>
+                                </div>
                                 <hr>
+                                <div class="stock-altas-container container">
+                                    <form action="" id="formCargas" class="formStock">
+                                        <h5 class="">Stock Altas</h5>
+                                        <select name="" id="etiquetaSelect-altas" class="etiquetaSelect"></select>
+                                        <input type="number" placeholder="Ingresar al stock" id="cantidadStock" class="cantidadStock">
+                                        <div class="container-button">
+                                            <button type="submit" class="btn btn-primary carga" id="cargaStock">Cargar</button>
+                                            <button type="submit" class="btn btn-danger bajaBtn" id="bajaStock">Quitar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <hr>
+                                <div class="stock-retiros-container container">
+                                    <form action="" class="formStock">
+                                        <h5 class="">Retiros</h5>
+                                        <select name="" id="etiquetaSelect-retiros" class="etiquetaSelect"></select>
+                                        <input type="number" placeholder="Cargar retiros" class="cantidadStock" id="cantidadRetiro">
+                                        <div class="container-button">
+                                            <button type="submit" class="btn btn-primary bajaBtn" id="cargaRetiro">Cargar</button>
+                                            <button type="submit" class="btn btn-danger carga" id="cancelarRetiro">Quitar</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            <table class="table table-striped table-bordered table-condensed">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Material/Producto</th>
-                                        <th>Cantidad</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="inventario">
-                                </tbody>
-                            </table>
+                            <div class="container" id="data-container">
+                                <div class="titulo-encabezado">
+                                    <h2>Inventario</h2>
+                                    <p>Total Inventario Materiales y Stock</p>
+                                    <hr>
+                                </div>
+                                <table class="table table-striped table-bordered table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Material/Producto</th>
+                                            <th>Cantidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="inventario">
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 <!---------------------------------------------TABLE------------------------------------------->
                         <div class=" container registro-operaciones-container" id="container-operaciones">

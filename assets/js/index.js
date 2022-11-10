@@ -74,7 +74,7 @@ onAuthStateChanged(auth, async (user) => {
 /*---------------------------------------ACTUALIZAR DATA------------------------------- */
 /*---------------------------------------ACTUALIZAR DATA------------------------------- */
 let today = new Date();
-let now = today.toLocaleDateString('en-US');
+let now = today.toLocaleString("es-ES");
 
 
 const btnCarga = document.querySelector("#cargaIngresos")
